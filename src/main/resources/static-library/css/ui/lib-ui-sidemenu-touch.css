@@ -1,0 +1,7 @@
+/* ui/lib-ui-sidemenu-touch.css */
+@media (pointer: coarse) {
+    div.sidemenu > div.item.fixed-last {
+        position: relative;
+        top: 2em;
+    }
+}

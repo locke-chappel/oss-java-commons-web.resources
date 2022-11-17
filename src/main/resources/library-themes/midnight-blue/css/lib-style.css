@@ -1,0 +1,43 @@
+/* midnight-blue: lib-style.css */
+:root {
+	--background-color: #002A60;
+}
+
+body > div > div.header:after {
+    background: linear-gradient(180deg, rgba(0,42,96,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+body > div.footer:before {
+    background: linear-gradient(0deg, rgba(0,42,96,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+div.sidemenu, 
+div.sidemenu > div.item.fixed-last {
+	background-color: #002A60;
+}
+
+div.sidemenu::after {
+    background: linear-gradient(90deg, rgba(0,42,96,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+div.cell {
+    background-color: #001D42;
+}
+
+div.cell > div.header {
+    background-color: #00306F;
+    /* Note: 00 vs 0, this is to fix a YUI bug (to preserve units like deg and %, use 00% instead of 0% */
+    background: linear-gradient(00deg, #003170 00%, #0047a4 65%, #003170 100.00%);
+}
+
+table thead tr {
+	background-color: #003170;
+}
+
+table tbody tr {
+	background-color: #003e8c;
+}
+
+table tbody tr:nth-child(even) {
+	background-color: #003578;
+}

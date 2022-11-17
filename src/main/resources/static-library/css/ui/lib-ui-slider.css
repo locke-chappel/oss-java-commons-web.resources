@@ -1,0 +1,75 @@
+/* ui/lib-ui-slider.css */
+div.input > div.slider {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 5.5em;
+    user-select: none;
+}
+
+div.input > div.slider > input[type="checkbox"] {
+    display: none;
+}
+
+div.input > div.slider > label {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	border: 2px solid #999999;
+	border-radius: 2em;
+}
+
+div.input > div.slider > label > span.inner {
+	display: block;
+	width: 200%;
+	margin-left: -100%;
+	transition: margin 0.2s ease-in 0s;
+}
+
+div.input > div.slider > label > span.inner > span.before, 
+div.input > div.slider > label > span.inner > span.after {
+	display: block;
+	float: left;
+	width: 50%;
+	height: 2.25em;
+	padding: 0em;
+	line-height: 2.25em;
+	color: white;
+	font-weight: bold;
+	box-sizing: border-box;
+}
+
+div.input > div.slider > label > span.inner > span.before {
+	padding-left: 0.75em;
+	background-color: #00CC00;
+	color: #FFFFFF;
+}
+
+div.input > div.slider > label > span.inner > span.after {
+	padding-right: 0.75em;
+	background-color: #EEEEEE;
+	color: #999999;
+	text-align: right;
+}
+
+div.input > div.slider > label > span.switch {
+	position: absolute;	
+	top: 0em;
+	bottom: 0em;
+	right: 3em;
+	display: block;
+	width: 1.75em;
+	margin: 0.25em;
+	background: #FFFFFF;	
+	border: 2px solid #999999;
+	border-radius: 1em;
+	transition: all 0.2s ease-in 0s; 
+}
+
+div.input > div.slider > input[type="checkbox"]:checked + label > span.inner {
+	margin-left: 0em;
+}
+
+div.input > div.slider > input[type="checkbox"]:checked + label > span.switch {
+	right: 0em; 
+}

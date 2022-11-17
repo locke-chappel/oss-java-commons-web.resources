@@ -1,0 +1,117 @@
+/* ui/lib-ui-table.css */
+table {
+	width: 100%;
+}
+
+table td, table th {
+    padding: 0.25em;
+}
+
+table thead tr {
+	background-color: #444444;
+	font-weight: bold;
+	border-bottom-style: solid;
+	border-bottom-width: 0.05em;
+	border-bottom-color: #AAAAAA;
+}
+
+table thead tr th:first-child {
+    border-top-left-radius: 0.25em;
+}
+
+table thead tr th:last-child {
+    border-top-right-radius: 0.25em;
+}
+
+table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 0.25em;
+}
+
+table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 0.25em;
+}
+
+table thead tr span.sortable {
+    cursor: pointer;
+}
+
+table thead tr span.sortable > span {
+    margin-left: 0.25em;
+    user-select: none;
+}
+
+table thead tr span.sortable.asc > span {
+    position: relative;
+    top: 0.25em;
+}
+
+table thead tr span.sortable.desc > span {
+    position: relative;
+    top: -0.25em;
+}
+
+table tbody tr {
+	background-color: #5F5F5F;
+}
+
+table tbody tr:nth-child(even) {
+	background-color: #4F4F4F;
+}
+
+table tbody tr td span.btn {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+table tbody tr td span.icon {
+    font-size: 80%;
+    user-select: none;
+}
+
+table tbody tr td span.icon.btn {
+    cursor: pointer;
+}
+
+table tbody tr td.noData {
+	font-style: italic;
+	text-align: center;
+}
+
+div.search div.header {
+    margin-bottom: 0.5em;
+}
+
+div.search div.header > div.input > div.lbl {
+    display: inline-block;
+}
+
+div.search div.header div.input > div.lbl > span.lbl::after {
+    content: "";
+}
+
+div.search div.searchResults div.pages {
+    text-align: center;
+}
+
+div.search div.searchResults div.pages > div {
+    display: inline-block;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+    user-select: none;
+}
+
+div.search div.searchResults div.pages > div.dots {
+    margin: 0;
+    font-size: 80%;
+}
+
+div.search div.searchResults div.pages > div > span {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+div.search div.searchResults div.pages > div.current > span {
+    cursor: default;
+    text-decoration: none;
+}
+

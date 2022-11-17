@@ -1,0 +1,79 @@
+/* ui/lib-ui-modal.css */
+div.modal {
+	--modal-background-color: #EEEEEE;
+	--modal-color: #000000;
+	
+	display: none;
+	position: fixed;
+	top: 0em;
+	left: 0em;
+	bottom: 0em;
+	right: 0em;
+	background-color: rgba(255, 255, 255, 0.25);
+	z-index: 1500;
+	text-align: center;
+}
+
+div.modal.dirty {
+	z-index: 1510;
+}
+
+div.modal:before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+div.modal.show {
+	display: block;
+}
+
+div.modal > div.dialog {
+	position: relative;
+	display: inline-block;
+	min-width: 25em;
+	max-width: 80vw;
+	padding: 0.5em;
+	vertical-align: middle;
+	background-color: var(--modal-background-color);
+	color: var(--modal-color);
+	border: 0.1em solid #333333;
+	border-radius: 0.5em;
+	box-shadow: 0 0.3em 0.7em rgba(0, 0, 0, 0.3);
+	z-index: 1501;
+}
+
+div.modal.dirty > div.dialog {
+	z-index: 1511;
+}
+
+div.modal > div.dialog > div.header {
+	text-align: center;
+	font-weight: bold;
+	font-size: 150%;
+	padding-bottom:  0.5em;
+}
+
+div.modal > div.dialog > div.body {
+	overflow: hidden;
+	overflow-y: auto;
+	max-height: 80vh;
+}
+
+div.modal > div.dialog > div.body {
+	
+}
+
+div.modal > div.dialog > div.footer {
+	padding-top: 0.5em;
+}
+
+div.modal > div.dialog > div.footer > div.buttons {
+	text-align: right;
+}
+
+div.modal > div.dialog > div.footer > div.buttons > button {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}

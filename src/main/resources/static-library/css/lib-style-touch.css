@@ -1,0 +1,11 @@
+/* lib-style-touch.css */
+@media (pointer: coarse) {
+    body > div > div.header:after,
+    body > div.body {
+        left: 0em;
+    }
+    
+    body > div.footer:before {
+        left: 0em;
+    }
+}

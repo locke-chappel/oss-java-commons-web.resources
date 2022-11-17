@@ -1,0 +1,27 @@
+/* ui/lib-ui-cell.css */
+div.cell {
+    display: inline-block;
+    position: relative;
+    margin-left: 0.75em;
+    margin-bottom: 0.75em;
+    padding: 0.5em;
+    vertical-align: top;
+    background-color: #262626;
+    border-style: none;
+    text-align: left;
+    border-radius: 0.25em;
+}
+
+div.cell > div.header {
+    height: 1.25em;
+    padding: 0.25em;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    margin-top: -0.5em;
+    margin-bottom: 0.5em;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    background-color: #353535;
+    /* Note: 00 vs 0, this is to fix a YUI bug (to preserve units like deg and %, use 00% instead of 0% */
+    background: linear-gradient(00deg, #353535 00%, #505050 65%, #353535 100.00%);
+}
