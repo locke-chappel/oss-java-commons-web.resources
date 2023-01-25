@@ -35,7 +35,16 @@ $$.Events = {
     Remove : function(element, event, func) {
         var e = $$.Find(element);
         e.removeEventListener(event, func);
-    }
+    },
+    SafeClick : function(element, func) {
+		$$.Events.Add(element, "click", function(event) {
+			this.disabled = true;
+			setTimeout(function() {
+				$$.Find(element).disabled = false;
+			}, 500);
+			func(event);
+		});
+	}
 };
 
 $$.Find = function(id) {
