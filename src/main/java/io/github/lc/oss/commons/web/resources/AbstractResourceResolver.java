@@ -1,4 +1,4 @@
-package com.github.lc.oss.commons.web.resources;
+package io.github.lc.oss.commons.web.resources;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
@@ -16,10 +16,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import com.github.lc.oss.commons.l10n.L10N;
-import com.github.lc.oss.commons.l10n.UserLocale;
-import com.github.lc.oss.commons.util.IoTools;
-import com.github.lc.oss.commons.util.TypedEnumCache;
+import io.github.lc.oss.commons.l10n.L10N;
+import io.github.lc.oss.commons.l10n.UserLocale;
+import io.github.lc.oss.commons.util.IoTools;
+import io.github.lc.oss.commons.util.TypedEnumCache;
 
 public abstract class AbstractResourceResolver {
     protected static final Comparator<String> CSS_TOUCH_COMPARATOR = new Comparator<String>() {

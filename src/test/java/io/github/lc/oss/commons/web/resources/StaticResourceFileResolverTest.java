@@ -1,11 +1,11 @@
-package com.github.lc.oss.commons.web.resources;
+package io.github.lc.oss.commons.web.resources;
 
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import com.github.lc.oss.commons.web.resources.AbstractResourceResolver.Types;
+import io.github.lc.oss.commons.web.resources.AbstractResourceResolver.Types;
 
 public class StaticResourceFileResolverTest {
     @Test

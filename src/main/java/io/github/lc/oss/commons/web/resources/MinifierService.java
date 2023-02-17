@@ -1,4 +1,4 @@
-package com.github.lc.oss.commons.web.resources;
+package io.github.lc.oss.commons.web.resources;
 
 import java.io.StringReader;
 import java.io.StringWriter;

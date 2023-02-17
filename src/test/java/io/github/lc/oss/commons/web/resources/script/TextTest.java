@@ -1,4 +1,4 @@
-package com.github.lc.oss.commons.web.resources.script;
+package io.github.lc.oss.commons.web.resources.script;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

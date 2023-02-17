@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.locke-chappel.oss.commons</groupId>
+        <groupId>io.github.locke-chappel.oss.commons</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0</version>
     </parent>
@@ -102,7 +102,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <argLine>
-                        --add-reads com.github.lc.oss.commons.web.resources=java.scripting
+                        --add-reads io.github.lc.oss.commons.web.resources=java.scripting
                         ${JacocoArgs}
                     </argLine>
                 </configuration>

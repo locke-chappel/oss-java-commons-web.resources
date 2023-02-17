@@ -1,6 +1,6 @@
-module com.github.lc.oss.commons.web.resources {
-    requires com.github.lc.oss.commons.l10n;
-    requires com.github.lc.oss.commons.util;
+module io.github.lc.oss.commons.web.resources {
+    requires io.github.lc.oss.commons.l10n;
+    requires io.github.lc.oss.commons.util;
 
     requires yuicompressor;
     requires closure.compiler.v20220719;
@@ -8,5 +8,5 @@ module com.github.lc.oss.commons.web.resources {
     /* Used only in testing */
     requires java.scripting;
 
-    exports com.github.lc.oss.commons.web.resources;
+    exports io.github.lc.oss.commons.web.resources;
 }

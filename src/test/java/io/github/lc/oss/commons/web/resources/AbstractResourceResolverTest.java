@@ -1,4 +1,4 @@
-package com.github.lc.oss.commons.web.resources;
+package io.github.lc.oss.commons.web.resources;
 
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -12,10 +12,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import com.github.lc.oss.commons.l10n.L10N;
-import com.github.lc.oss.commons.l10n.UserLocale;
-import com.github.lc.oss.commons.web.resources.AbstractResourceResolver.TypedPathPredicate;
-import com.github.lc.oss.commons.web.resources.AbstractResourceResolver.Types;
+import io.github.lc.oss.commons.l10n.L10N;
+import io.github.lc.oss.commons.l10n.UserLocale;
+import io.github.lc.oss.commons.web.resources.AbstractResourceResolver.TypedPathPredicate;
+import io.github.lc.oss.commons.web.resources.AbstractResourceResolver.Types;
 
 public class AbstractResourceResolverTest {
     private static class TestClass extends AbstractResourceResolver {

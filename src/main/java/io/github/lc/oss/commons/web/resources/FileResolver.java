@@ -1,4 +1,4 @@
-package com.github.lc.oss.commons.web.resources;
+package io.github.lc.oss.commons.web.resources;
 
 import java.nio.file.Path;
 import java.text.Collator;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.function.Predicate;
 
-import com.github.lc.oss.commons.util.IoTools;
+import io.github.lc.oss.commons.util.IoTools;
 
 public class FileResolver extends AbstractResourceResolver {
     private final String root;

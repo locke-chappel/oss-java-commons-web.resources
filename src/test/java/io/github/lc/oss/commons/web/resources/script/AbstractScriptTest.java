@@ -1,4 +1,4 @@
-package com.github.lc.oss.commons.web.resources.script;
+package io.github.lc.oss.commons.web.resources.script;
 
 import java.nio.charset.StandardCharsets;
 
@@ -9,7 +9,7 @@ import javax.script.ScriptException;
 
 import org.junit.jupiter.api.Assertions;
 
-import com.github.lc.oss.commons.util.IoTools;
+import io.github.lc.oss.commons.util.IoTools;
 
 public abstract class AbstractScriptTest {
     @SuppressWarnings("unchecked")

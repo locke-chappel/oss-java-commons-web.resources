@@ -1,4 +1,4 @@
-package com.github.lc.oss.commons.web.resources;
+package io.github.lc.oss.commons.web.resources;
 
 public interface Minifier {
     String minifyCssIfEnabled(String css);
