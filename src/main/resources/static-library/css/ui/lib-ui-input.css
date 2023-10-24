@@ -109,6 +109,7 @@ div.input.upload input[type="file"] {
 div.input.upload button {
 	font-size: 80%;
 	margin-left: 0.25em;
+	margin-right: 0.25em;
 }
 
 div.input.checkbox input[type="checkbox"] {
