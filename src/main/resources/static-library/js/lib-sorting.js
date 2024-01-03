@@ -26,7 +26,7 @@ $$.Sorting = {
 		}
 		
 		array.sort(function(a, b) {
-			comparator(evaluator(a), evaluator(b), reverse);
+			return comparator(evaluator(a), evaluator(b), reverse);
 		});
 	},
     Numeric : function(a, b, reverse) {
