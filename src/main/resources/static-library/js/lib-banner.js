@@ -44,7 +44,8 @@ $$.Banner = {
             banner.classList.remove("show");
         }
     },
-    ShowMessage : function(type, text) {
+    ShowMessage : function(type, text, autohide) {
+	    var aHide = typeof(autohide) === "boolean" ? autohide : type.toLowerCase() === "success"; 
         var _autoHide = function(message, timeout) {
             var _hide = function() {
                 $$.Banner.Hide(message);
@@ -70,7 +71,7 @@ $$.Banner = {
         var message = document.createElement("div");
         message.classList.add("message");
         message.classList.add(type.toLowerCase());
-        if ($$.Banner.Config.AutoHideAll === true || type.toLowerCase() === "success") {
+        if ($$.Banner.Config.AutoHideAll === true || aHide) {
             _autoHide(message, $$.Banner.Config.AutoHideTimeout);
         }
         var icon = document.createElement("span");
@@ -119,7 +120,7 @@ $$.Banner = {
                 $$.Banner.ShowMessage(value.severity, $$.L10N.Replace(value.text, value.vars));
             } else {
                 $$.L10N.Get("messages." + value.category + "." + value.severity + "." + value.number, function(text) {
-                    $$.Banner.ShowMessage(value.severity, text);
+                    $$.Banner.ShowMessage(value.severity, text, value.autohide);
                 }, value.vars);
             }
         });
