@@ -12,7 +12,7 @@
     <version>1.0.10</version>
     <name>${project.artifactId}</name>
     <description>Common web application resouces (CSS, JavaScript, etc.)</description>
-    <url>https://github.com/locke-chappel/oss-commons-web.resources</url>
+    <url>https://github.com/locke-chappel/oss-java-commons-web.resources</url>
 
     <licenses>
         <license>
