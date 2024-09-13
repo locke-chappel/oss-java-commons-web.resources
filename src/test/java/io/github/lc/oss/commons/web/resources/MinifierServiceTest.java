@@ -80,7 +80,7 @@ public class MinifierServiceTest extends AbstractTest {
 
         String result = minifier.minifyJsIfEnabled(src);
         Assertions.assertEquals(
-                "\"use strict\";var $$ = { Function : function() { ALL_MIME = \"*\"+\"/\"+\"*\"; var aLongVariableName = \"test    test\"; document.write(aLongVariableName);}};$$.Function();",
+                "\"use strict\"; var $$ = { Function : function() { ALL_MIME = \"*\"+\"/\"+\"*\"; var aLongVariableName = \"test    test\"; document.write(aLongVariableName);}};$$.Function();",
                 result);
     }
 
@@ -95,7 +95,7 @@ public class MinifierServiceTest extends AbstractTest {
 
         String result = minifier.minifyJsIfEnabled(src);
         Assertions.assertEquals(
-                "\"use strict\";var $$ = { Function : function() { ALL_MIME = \"*/*\"; var aLongVariableName = \"test    test\"; document.write(aLongVariableName);}};$$.Function();/* some comment */",
+                "\"use strict\"; var $$ = { Function : function() { ALL_MIME = \"*/*\"; var aLongVariableName = \"test    test\"; document.write(aLongVariableName);}};$$.Function();/* some comment */",
                 result);
     }
 

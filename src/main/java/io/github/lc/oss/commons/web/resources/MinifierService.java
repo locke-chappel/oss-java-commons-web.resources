@@ -115,7 +115,7 @@ public class MinifierService implements Minifier {
             return "";
         }
 
-        String s = "\"use strict\";" + js;
+        String s = "\"use strict\"; " + js;
 
         if (this.isJsCommentRemovalEnabled()) {
             s = COMMENT_RULE.apply(s);
