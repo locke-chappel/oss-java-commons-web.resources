@@ -1,6 +1,6 @@
 /* ui/lib-ui-cell-touch.css */
 @media (pointer: coarse) {
     div.cell {
-	    margin-left: 0;
-	}
+        margin-left: 0;
+    }
 }

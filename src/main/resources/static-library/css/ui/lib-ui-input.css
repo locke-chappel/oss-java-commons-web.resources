@@ -5,7 +5,7 @@ div.input {
 }
 
 div.input.inline {
-	display: inline-block;
+    display: inline-block;
 }
 
 div.input > span.lbl {
@@ -15,30 +15,30 @@ div.input > span.lbl {
 }
 
 div.input.checkbox label.lbl {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 div.input > div.lbl {
-	margin-bottom: 0.25em;
+    margin-bottom: 0.25em;
 }
 
 div.input > div.lbl > span.lbl {
-	display: inline-block;
+    display: inline-block;
 }
 
 div.input > div.lbl > span.lbl::after {
-	content: "#global.input.label.suffix#";
+    content: "#global.input.label.suffix#";
 }
 
 div.input > div.lbl > span.lbl.required {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 div.input > div.lbl > span.lbl.required::before {
-	content: "#global.input.label.required#";
-	margin-right: 0.25em;
-	font-size: 80%;
-	vertical-align: top;
+    content: "#global.input.label.required#";
+    margin-right: 0.25em;
+    font-size: 80%;
+    vertical-align: top;
 }
 
 div.input input[type="text"],
@@ -48,11 +48,11 @@ div.input input[type="date"],
 div.input input[type="checkbox"],
 div.input textarea,
 div.input select {
-	border: 0.1em solid #CCCCCC;
-	border-radius: 0.3em;
-	padding: 0.25em;
-	box-shadow: inset 0 0.1em 0.1em rgba(0,0,0,0.075);
-	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    border: 0.1em solid #CCCCCC;
+    border-radius: 0.3em;
+    padding: 0.25em;
+    box-shadow: inset 0 0.1em 0.1em rgba(0,0,0,0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 div.input input[type="text"],
@@ -61,7 +61,7 @@ div.input input[type="password"],
 div.input input[type="date"],
 div.input textarea,
 div.input select {
-	width: 20em;
+    width: 20em;
 }
 
 div.input input[type="text"]:focus,
@@ -74,8 +74,8 @@ div.input textarea:focus,
 div.input select:focus,
 button:focus {
     border-color: #00B2FF;
-	outline: 0;
-	box-shadow: inset 0 0.1em 0.1em rgba(0,0,0,0.075), 0 0 0.25em rgba(0,178,255,0.6);
+    outline: 0;
+    box-shadow: inset 0 0.1em 0.1em rgba(0,0,0,0.075), 0 0 0.25em rgba(0,178,255,0.6);
 }
 
 div.input input[type="date"] {
@@ -83,38 +83,38 @@ div.input input[type="date"] {
 }
 
 body.ctrl div.input.url input[type="text"]:hover {
-	text-decoration: underline;
-	cursor: pointer;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 div.input select {
     /* needs to be +0.75em of text input, but for stacked div inputs width 100% computes the right size (usually) */
     width: 100%;
-	padding-top: 0.173em;
-	padding-bottom: 0.172em;
+    padding-top: 0.173em;
+    padding-bottom: 0.172em;
 }
 
 div.input textarea {
-	vertical-align: top;
+    vertical-align: top;
 }
 
 div.input.upload {
-	padding-top: 0.05em;
+    padding-top: 0.05em;
 }
 
 div.input.upload input[type="file"] {
-	display: none;
+    display: none;
 }
 
 div.input.upload button {
-	font-size: 80%;
-	margin-left: 0.25em;
-	margin-right: 0.25em;
+    font-size: 80%;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
 }
 
 div.input.checkbox input[type="checkbox"] {
-	cursor: pointer;
-	vertical-align: text-bottom;
+    cursor: pointer;
+    vertical-align: text-bottom;
 }
 
 div.input.checkbox.styled input[type="checkbox"] {

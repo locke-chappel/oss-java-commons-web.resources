@@ -1,6 +1,6 @@
 /* ui/lib-ui-table.css */
 table {
-	width: 100%;
+    width: 100%;
 }
 
 table td, table th {
@@ -8,11 +8,11 @@ table td, table th {
 }
 
 table thead tr {
-	background-color: #444444;
-	font-weight: bold;
-	border-bottom-style: solid;
-	border-bottom-width: 0.05em;
-	border-bottom-color: #AAAAAA;
+    background-color: #444444;
+    font-weight: bold;
+    border-bottom-style: solid;
+    border-bottom-width: 0.05em;
+    border-bottom-color: #AAAAAA;
 }
 
 table thead tr th:first-child {
@@ -51,11 +51,11 @@ table thead tr span.sortable.desc > span {
 }
 
 table tbody tr {
-	background-color: #5F5F5F;
+    background-color: #5F5F5F;
 }
 
 table tbody tr:nth-child(even) {
-	background-color: #4F4F4F;
+    background-color: #4F4F4F;
 }
 
 table tbody tr td span.btn {
@@ -73,8 +73,8 @@ table tbody tr td span.icon.btn {
 }
 
 table tbody tr td.noData {
-	font-style: italic;
-	text-align: center;
+    font-style: italic;
+    text-align: center;
 }
 
 div.search div.header {

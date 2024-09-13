@@ -26,6 +26,7 @@ public abstract class AbstractScriptTest {
 
     protected Invocable loadEngine(String... paths) {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("graal.js");
+        Assertions.assertNotNull(engine);
         Assertions.assertTrue(engine instanceof Invocable, "JavaScript engine is not Invocable, aborting test");
         try {
             engine.eval(this.compileScripts(paths));

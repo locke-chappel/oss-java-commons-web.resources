@@ -60,22 +60,22 @@ $$.UI.Input = function(opts) {
             $$.Set(divInput, input, true);
             
             if (opts.label != null) {
-		        var label = document.createElement("label");
-		        label.classList.add("lbl");
-		        label.setAttribute("for", input.id);
-		        if (opts.required === true) {
-		            label.classList.add("required");
-		        }
-		        $$.Set(label, opts.label);
-		        
-		        if (opts.inline !== false) {
-		            $$.Set(divInput, label, true);   
-		        } else {
-		            var divLabel = document.createElement("div");
-		            divLabel.classList.add("lbl");
-		            $$.Set(divLabel, label);
-		            $$.Set(divInput, divLabel, true);
-		        }
+                var label = document.createElement("label");
+                label.classList.add("lbl");
+                label.setAttribute("for", input.id);
+                if (opts.required === true) {
+                    label.classList.add("required");
+                }
+                $$.Set(label, opts.label);
+                
+                if (opts.inline !== false) {
+                    $$.Set(divInput, label, true);   
+                } else {
+                    var divLabel = document.createElement("div");
+                    divLabel.classList.add("lbl");
+                    $$.Set(divLabel, label);
+                    $$.Set(divInput, divLabel, true);
+                }
             }
             break;
         case "range":
@@ -91,8 +91,8 @@ $$.UI.Input = function(opts) {
                 input.value = opts.value;    
             }
             if (opts.tooltip != null) {
-				input.title = opts.tooltip;	
-			}
+                input.title = opts.tooltip;    
+            }
             $$.Set(divRange, input);
             $$.Set(divInput, divRange, true);
             break;
@@ -136,14 +136,14 @@ $$.UI.Input = function(opts) {
                 input.value = opts.value;    
             }
             if (opts.tooltip != null) {
-				input.title = opts.tooltip;	
-			}
-			if (opts.type === "number") {
-				input.min = opts.min;
-            	input.max = opts.max;
-			} else {
-				input.maxLength = opts.max;
-			}
+                input.title = opts.tooltip;    
+            }
+            if (opts.type === "number") {
+                input.min = opts.min;
+                input.max = opts.max;
+            } else {
+                input.maxLength = opts.max;
+            }
             $$.Set(divInput, input, true);
             break;
         case "textarea":
@@ -197,8 +197,8 @@ $$.UI.Input = function(opts) {
     }
     
     if (opts.type === "url") {
-		$$.UI.InputFunctions.RegisterUrlInput(divInput);
-	}
+        $$.UI.InputFunctions.RegisterUrlInput(divInput);
+    }
     
     if (typeof(opts.customize) === "function") {
         opts.customize(input, divInput);
@@ -208,32 +208,32 @@ $$.UI.Input = function(opts) {
 };
 
 $$.UI.InputFunctions = {
-	RegisterUrlInput : function(divInput) {
-		var div = $$.Find(divInput);
-		div.classList.add("url");
-		
-		var input = div.querySelectorAll("input")[0];
-		$$.Events.Add(input, "click", function(event) {
-			if (document.body.classList.contains("ctrl")) {
-				var url = $$.Text.Trim(input.value, true);
-				if (url != null) {
-					$$.URL.NewWindow(input.value);
-				}
-			}
-		});
-		
-		if (window.InputUrlHandlerRegister !== true) {
-			window.InputUrlHandlerRegister = true;
-			$$.Events.Add(window, "keydown", function(event) {
-				if (event.keyCode === $$.Events.KeyCodes.Control) {
-					document.body.classList.add("ctrl");
-				}
-			});
-			$$.Events.Add(window, "keyup", function(event) {
-				if (event.keyCode === $$.Events.KeyCodes.Control) {
-					document.body.classList.remove("ctrl");
-				}
-			});
-		}
-	}
+    RegisterUrlInput : function(divInput) {
+        var div = $$.Find(divInput);
+        div.classList.add("url");
+        
+        var input = div.querySelectorAll("input")[0];
+        $$.Events.Add(input, "click", function(event) {
+            if (document.body.classList.contains("ctrl")) {
+                var url = $$.Text.Trim(input.value, true);
+                if (url != null) {
+                    $$.URL.NewWindow(input.value);
+                }
+            }
+        });
+        
+        if (window.InputUrlHandlerRegister !== true) {
+            window.InputUrlHandlerRegister = true;
+            $$.Events.Add(window, "keydown", function(event) {
+                if (event.keyCode === $$.Events.KeyCodes.Control) {
+                    document.body.classList.add("ctrl");
+                }
+            });
+            $$.Events.Add(window, "keyup", function(event) {
+                if (event.keyCode === $$.Events.KeyCodes.Control) {
+                    document.body.classList.remove("ctrl");
+                }
+            });
+        }
+    }
 };

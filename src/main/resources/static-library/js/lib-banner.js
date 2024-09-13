@@ -45,7 +45,7 @@ $$.Banner = {
         }
     },
     ShowMessage : function(type, text, autohide) {
-	    var aHide = typeof(autohide) === "boolean" ? autohide : type.toLowerCase() === "success"; 
+        var aHide = typeof(autohide) === "boolean" ? autohide : type.toLowerCase() === "success"; 
         var _autoHide = function(message, timeout) {
             var _hide = function() {
                 $$.Banner.Hide(message);

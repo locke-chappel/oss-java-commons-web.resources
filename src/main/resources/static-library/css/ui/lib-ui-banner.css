@@ -1,59 +1,59 @@
 /* ui/lib-ui-banner.css */
 div.banner {
-	position: fixed;
-	top: 4em; /* see header position */
-	right: 1em;
-	width: 30em;
-	z-index: 10001;
+    position: fixed;
+    top: 4em; /* see header position */
+    right: 1em;
+    width: 30em;
+    z-index: 10001;
 }
 
 div.banner > div.message {
-	display: block;
-	padding: 0.4em;
-	border-radius: 0.3em;
-	border-style: solid;
-	border-width: 0.05em;
-	margin-bottom: 0.5em;
+    display: block;
+    padding: 0.4em;
+    border-radius: 0.3em;
+    border-style: solid;
+    border-width: 0.05em;
+    margin-bottom: 0.5em;
 }
 
 div.banner > div.message > div.text {
-	display: inline-block;
-	max-width: 26em;
+    display: inline-block;
+    max-width: 26em;
 }
 
 div.banner > div.message > span.icon {
-	display: inline-block;
-	float: left;
-	margin-right: 0.5em;
+    display: inline-block;
+    float: left;
+    margin-right: 0.5em;
 }
 
 div.banner > div.message > span.close {
-	display: inline-block;
-	cursor: pointer;
-	float: right;
-	margin-left: 0.5em;
+    display: inline-block;
+    cursor: pointer;
+    float: right;
+    margin-left: 0.5em;
 }
 
 div.banner > div.message.error {
-	background-color: #f2dede;
+    background-color: #f2dede;
     border-color: #ebcccc;
     color: #a94442;
 }
 
 div.banner > div.message.info {
-	background-color: #D9EDF7;
+    background-color: #D9EDF7;
     border-color: #BCDFF1;
     color: #31708F;
 }
 
 div.banner > div.message.success {
-	background-color: #DFF0D8;
+    background-color: #DFF0D8;
     border-color: #D0E9C6;
     color: #3C763D;
 }
 
 div.banner > div.message.warning {
-	background-color: #FCF8E3;
+    background-color: #FCF8E3;
     border-color: #FAF2CC;
     color: #8A6D3B;
 }

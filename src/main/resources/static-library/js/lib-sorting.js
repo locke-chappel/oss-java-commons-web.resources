@@ -12,23 +12,23 @@ $$.Sorting = {
         return 0;
     },
     Fields : function(array, evaluator, reverse, comparator) {
-		if (array == null || array.length < 2) {
-			return;
-		}
-		
-		if (typeof(comparator) !== "function") {
-			var sample = evaluator(array[0]);
-			if (typeof(sample) === "number") {
-				comparator = $$.Sorting.Numeric;
-			} else {
-				comparator = $$.Sorting.String;
-			}
-		}
-		
-		array.sort(function(a, b) {
-			return comparator(evaluator(a), evaluator(b), reverse);
-		});
-	},
+        if (array == null || array.length < 2) {
+            return;
+        }
+        
+        if (typeof(comparator) !== "function") {
+            var sample = evaluator(array[0]);
+            if (typeof(sample) === "number") {
+                comparator = $$.Sorting.Numeric;
+            } else {
+                comparator = $$.Sorting.String;
+            }
+        }
+        
+        array.sort(function(a, b) {
+            return comparator(evaluator(a), evaluator(b), reverse);
+        });
+    },
     Numeric : function(a, b, reverse) {
         if (a === b) {
             return 0;

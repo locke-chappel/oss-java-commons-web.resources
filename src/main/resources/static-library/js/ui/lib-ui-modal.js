@@ -49,7 +49,7 @@ $$.UI.Modal = {
                 
                 if (event.keyCode === $$.Events.KeyCodes.Enter) {
                     if (opts.enterIsOK === true) {
-	                    $$.Events.Cancel(event);
+                        $$.Events.Cancel(event);
                         btnOk.click();
                     } else if (opts.enterCloses !== false) {
                         $$.Events.Cancel(event);

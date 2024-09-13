@@ -1,18 +1,67 @@
 package io.github.lc.oss.commons.web.resources;
 
-import java.io.StringReader;
-import java.io.StringWriter;
-
-//import org.springframework.beans.factory.annotation.Value;
-
-import com.google.javascript.jscomp.CompilationLevel;
-import com.google.javascript.jscomp.Compiler;
-import com.google.javascript.jscomp.CompilerOptions;
-import com.google.javascript.jscomp.SourceFile;
-import com.yahoo.platform.yui.compressor.CssCompressor;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MinifierService implements Minifier {
+    private static final List<Rule> CSS_RULES;
+    private static final List<Rule> JS_RULES;
+    private static final Rule COMMENT_RULE = new CommentRule();
+
+    static {
+        List<Rule> rules = new ArrayList<>();
+        // Remove...
+        rules.add(PatternRule.of("\\r\\n", "")); // Windows newlines
+        rules.add(PatternRule.of("\\n", "")); // *nix newlines
+
+        // Collapse all unquoted white space to a single space
+        rules.add(PatternRule.of("\\s+(?=(?:[^\\'\"]*[\\'\"][^\\'\"]*[\\'\"])*[^\\'\"]*$)", " "));
+
+        // Remove unnecessary spaces
+        rules.add(PatternRule.of("\\s*,\\s*", ","));
+        rules.add(PatternRule.of("\\s*\\{\\s*", "{"));
+        rules.add(PatternRule.of("\\s*}\\s*", "}"));
+        rules.add(PatternRule.of("\\s*;\\s*", ";"));
+        rules.add(PatternRule.of("\\s*:\\s*", ":"));
+        rules.add(PatternRule.of("\\s*>\\s*", ">"));
+
+        CSS_RULES = Collections.unmodifiableList(rules);
+
+        rules = new ArrayList<>();
+        // Remove...
+        rules.add(PatternRule.of("\\r\\n", "")); // Windows newlines
+        rules.add(PatternRule.of("\\n", "")); // *nix newlines
+
+        // Collapse all unquoted white space to a single space
+        rules.add(PatternRule.of("\\s+(?=(?:[^\\'\"]*[\\'\"][^\\'\"]*[\\'\"])*[^\\'\"]*$)", " "));
+
+        JS_RULES = Collections.unmodifiableList(rules);
+    }
+
     private boolean enabled = true;
+    private boolean enableCssCommentRemoval = true;
+    private boolean enableJsCommentRemoval = true;
+
+    @Override
+    public void setEnableCssCommentRemoval(boolean enabled) {
+        this.enableCssCommentRemoval = enabled;
+    }
+
+    @Override
+    public boolean isCssCommentRemovalEnabled() {
+        return this.enableCssCommentRemoval;
+    }
+
+    @Override
+    public void setEnableJsCommentRemoval(boolean enabled) {
+        this.enableJsCommentRemoval = enabled;
+    }
+
+    @Override
+    public boolean isJsCommentRemovalEnabled() {
+        return this.enableJsCommentRemoval;
+    }
 
     @Override
     public void setEnabled(boolean enabled) {
@@ -35,13 +84,20 @@ public class MinifierService implements Minifier {
 
     @Override
     public String minifyCss(String css) {
-        try (StringReader reader = new StringReader(css); StringWriter writer = new StringWriter();) {
-            CssCompressor compiler = new CssCompressor(reader);
-            compiler.compress(writer, -1);
-            return writer.toString();
-        } catch (Exception ex) {
-            throw new RuntimeException("Error minifying CSS", ex);
+        if (css == null) {
+            return "";
         }
+
+        String s = css;
+
+        if (this.isCssCommentRemovalEnabled()) {
+            s = COMMENT_RULE.apply(s);
+        }
+
+        for (Rule rule : CSS_RULES) {
+            s = rule.apply(s);
+        }
+        return s;
     }
 
     @Override
@@ -55,15 +111,19 @@ public class MinifierService implements Minifier {
 
     @Override
     public String minifyJs(String js) {
-        /*
-         * see http://blog.bolinfest.com/2009/11/calling-closure-compiler-from-java.html
-         */
-        Compiler compiler = new Compiler();
-        CompilerOptions options = new CompilerOptions();
-        CompilationLevel.SIMPLE_OPTIMIZATIONS.setOptionsForCompilationLevel(options);
-        SourceFile extern = SourceFile.fromCode("externs.js", "");
-        SourceFile input = SourceFile.fromCode("script.js", js);
-        compiler.compile(extern, input, options);
-        return compiler.toSource();
+        if (js == null) {
+            return "";
+        }
+
+        String s = "\"use strict\";" + js;
+
+        if (this.isJsCommentRemovalEnabled()) {
+            s = COMMENT_RULE.apply(s);
+        }
+
+        for (Rule rule : JS_RULES) {
+            s = rule.apply(s);
+        }
+        return s;
     }
 }

@@ -1,19 +1,19 @@
 /* ui/lib-ui-sidemenu.css */
 div.sidemenu {
-	position: fixed;
-	top: 4em;
-	left: 0em;
-	bottom: 0em;
-	padding-top: 1em;
-	background-color: #000000;
-	z-index: 500;
-	transition: 0.35s;
-	overflow: hidden;
-	width: 0em;
+    position: fixed;
+    top: 4em;
+    left: 0em;
+    bottom: 0em;
+    padding-top: 1em;
+    background-color: #000000;
+    z-index: 500;
+    transition: 0.35s;
+    overflow: hidden;
+    width: 0em;
 }
 
 div.sidemenu.show {
-	width: 20em;
+    width: 20em;
 }
 
 div.sidemenu::after {
@@ -29,27 +29,27 @@ div.sidemenu::after {
 }
 
 div.sidemenu.show::after {
-	left: 20em;
+    left: 20em;
     visibility: visible;
 }
 
 div.sidemenu > div.menu {
-	position: absolute;
-	top: 0em;
-	bottom: 3em;
-	width: 20em;
-	overflow: hidden;
-	overflow-y: auto;
+    position: absolute;
+    top: 0em;
+    bottom: 3em;
+    width: 20em;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 
 div.sidemenu > div.item,
 div.sidemenu > div.lined {
-	padding-left: 1em;
-	padding-right: 1em;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	width: 18em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 18em;
 }
 
 div.sidemenu > div.item.subitem {
@@ -60,53 +60,53 @@ div.sidemenu > div.item.subitem {
 }
 
 div.sidemenu > div.lined {
-	padding-top: 0.25em;
-	padding-bottom: 0.25em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
 }
 
 div.sidemenu > div.item.fixed-last {
-	position: absolute;
-	bottom: 0em;
-	padding-bottom: 1em;
-	background-color: #000000;
+    position: absolute;
+    bottom: 0em;
+    padding-bottom: 1em;
+    background-color: #000000;
 }
 
 div.sidemenu > div.item > div > span {
-	color: #AAAAAA;
-	cursor: pointer;
-	
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+    color: #AAAAAA;
+    cursor: pointer;
+    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 div.sidemenu > div.item > div > span:hover {
-	color: #FFFFFF;
-	transition: 0.35s;
+    color: #FFFFFF;
+    transition: 0.35s;
 }
-	
+
 div.sidemenu > div.item > div.divider {
-	margin-top: 2em;
+    margin-top: 2em;
 }
 
 div.sidemenu > div.item > div.divider span {
-	color: #FFFFFF;
-	cursor: default;
-	font-size: 120%;
-	user-select: auto;
+    color: #FFFFFF;
+    cursor: default;
+    font-size: 120%;
+    user-select: auto;
 }
 
 div.sidemenu > div.item > div.lined::after,
 div.sidemenu > div.lined::after {
-	display: block;
-	content: "";
-	height: 0.06em;
-	margin-top: 0.5em;
-	margin-right: -2em;
-	background-image: linear-gradient(to right, #CCCCCC 75%, rgba(0, 0, 0, 0));
+    display: block;
+    content: "";
+    height: 0.06em;
+    margin-top: 0.5em;
+    margin-right: -2em;
+    background-image: linear-gradient(to right, #CCCCCC 75%, rgba(0, 0, 0, 0));
 }
 
 div.sidemenu > div.lined::after {
-	margin-top: 0em;
+    margin-top: 0em;
 }

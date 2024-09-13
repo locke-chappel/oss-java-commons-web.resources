@@ -25,20 +25,39 @@ public class MinifierServiceTest extends AbstractTest {
         final String src = "body {\n\tcolor: #FFFFFF;\n}\ndiv {\n\t/* emtpy */\n}";
 
         String result = minifier.minifyCssIfEnabled(src);
-        Assertions.assertEquals("body{color:#fff}", result);
+        Assertions.assertEquals("body{color:#FFFFFF;}div{}", result);
     }
 
     @Test
-    public void test_minifyCss_error() {
+    public void test_minifyCss_commentRemovalDisabled() {
+        Minifier minifier = new MinifierService();
+        minifier.setEnabled(true);
+        minifier.setEnableCssCommentRemoval(false);
+        minifier.setEnableJsCommentRemoval(true);
+
+        final String src = "body {\n\tcolor: #FFFFFF;\n}\ndiv {\n\t/* \"emtpy    comment\" */\n}";
+
+        String result = minifier.minifyCssIfEnabled(src);
+        Assertions.assertEquals("body{color:#FFFFFF;}div{/* \"emtpy    comment\" */}", result);
+    }
+
+    @Test
+    public void test_minifyCss_blank() {
         Minifier minifier = new MinifierService();
         minifier.setEnabled(true);
 
-        try {
-            minifier.minifyCssIfEnabled(null);
-            Assertions.fail("Expected exception");
-        } catch (RuntimeException ex) {
-            Assertions.assertEquals("Error minifying CSS", ex.getMessage());
-        }
+        Assertions.assertEquals("", minifier.minifyCssIfEnabled(null));
+
+        /*
+         * Odd corner cases but technically correct as per definition.
+         * 
+         * Could add a special case logic but this likely never happens in practice so
+         * why waste the resources?
+         * 
+         * This behavior is "good enough"
+         */
+        Assertions.assertEquals(" ", minifier.minifyCssIfEnabled(" "));
+        Assertions.assertEquals(" ", minifier.minifyCssIfEnabled(" \r \n \t \r\n "));
     }
 
     @Test
@@ -46,7 +65,7 @@ public class MinifierServiceTest extends AbstractTest {
         Minifier minifier = new MinifierService();
         minifier.setEnabled(false);
 
-        final String src = "var $$ = {\n\t Function : function() {\n\tvar aLongVariableName = \"test\";\n\tdocument.write(aLongVariableName);\n}};\n\n$$.Function();\n";
+        final String src = "var $$ = {\n\t Function : function() {\n\tvar aLongVariableName = \"test\";\n\tdocument.write(aLongVariableName);\n}};\n\n$$.Function();\n/* some comment */\n";
 
         String result = minifier.minifyJsIfEnabled(src);
         Assertions.assertSame(src, result);
@@ -57,9 +76,45 @@ public class MinifierServiceTest extends AbstractTest {
         Minifier minifier = new MinifierService();
         minifier.setEnabled(true);
 
-        final String src = "var $$ = {\n\t Function : function() {\n\tvar aLongVariableName = \"test\";\n\tdocument.write(aLongVariableName);\n}};\n\n$$.Function();\n";
+        final String src = "var $$ = {\n\t Function : function() {\n\tALL_MIME = \"*/*\";\n\tvar aLongVariableName = \"test    test\";\n\tdocument.write(aLongVariableName);\n}};\n\n$$.Function();\n/* some comment */\n";
 
         String result = minifier.minifyJsIfEnabled(src);
-        Assertions.assertEquals("'use strict';var $$={Function:function(){document.write(\"test\")}};$$.Function();", result);
+        Assertions.assertEquals(
+                "\"use strict\";var $$ = { Function : function() { ALL_MIME = \"*\"+\"/\"+\"*\"; var aLongVariableName = \"test    test\"; document.write(aLongVariableName);}};$$.Function();",
+                result);
+    }
+
+    @Test
+    public void test_minifyJs_commentRemovalDisabled() {
+        Minifier minifier = new MinifierService();
+        minifier.setEnabled(true);
+        minifier.setEnableCssCommentRemoval(true);
+        minifier.setEnableJsCommentRemoval(false);
+
+        final String src = "var $$ = {\n\t Function : function() {\n\tALL_MIME = \"*/*\";\n\tvar aLongVariableName = \"test    test\";\n\tdocument.write(aLongVariableName);\n}};\n\n$$.Function();\n/* some comment */\n";
+
+        String result = minifier.minifyJsIfEnabled(src);
+        Assertions.assertEquals(
+                "\"use strict\";var $$ = { Function : function() { ALL_MIME = \"*/*\"; var aLongVariableName = \"test    test\"; document.write(aLongVariableName);}};$$.Function();/* some comment */",
+                result);
+    }
+
+    @Test
+    public void test_minifyJs_blank() {
+        Minifier minifier = new MinifierService();
+        minifier.setEnabled(true);
+
+        Assertions.assertEquals("", minifier.minifyJsIfEnabled(null));
+
+        /*
+         * Odd corner cases but technically correct as per definition.
+         * 
+         * Could add a special case logic but this likely never happens in practice so
+         * why waste the resources?
+         * 
+         * This behavior is "good enough"
+         */
+        Assertions.assertEquals("\"use strict\"; ", minifier.minifyJsIfEnabled(" "));
+        Assertions.assertEquals("\"use strict\"; ", minifier.minifyJsIfEnabled(" \r \n \t \r\n "));
     }
 }

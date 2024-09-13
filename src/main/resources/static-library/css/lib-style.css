@@ -1,78 +1,78 @@
 /* lib-style.css */
 :root {
-	--background-color: #000000;
-	--color: #FFFFFF;
+    --background-color: #000000;
+    --color: #FFFFFF;
 }
 
 @font-face {
-	font-family: 'Font Awesome';
-	font-style: normal;
-	font-weight: 400;
-	font-display: block;
-	src: url("#context.path.resource#font/fontawesome/fa-regular-400.woff2") format("woff2"); 
+    font-family: 'Font Awesome';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("#context.path.resource#font/fontawesome/fa-regular-400.woff2") format("woff2"); 
 }
 .awesome {
-	font-family: Font Awesome;
-	font-weight: 400;
+    font-family: Font Awesome;
+    font-weight: 400;
 }
 
 @font-face {
-	font-family: 'Font Awesome';
-	font-style: normal;
-	font-weight: 900;
-	font-display: block;
-	src: url("#context.path.resource#font/fontawesome/fa-solid-900.woff2") format("woff2"); 
+    font-family: 'Font Awesome';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url("#context.path.resource#font/fontawesome/fa-solid-900.woff2") format("woff2"); 
 }
 .awesome.bold {
-	font-weight: 900;
+    font-weight: 900;
 }
 
 /*
 Brands aren't used in most cases so apps can load them only if needed
 @font-face {
-	font-family: 'Font Awesome Brands';
-	font-style: normal;
-	font-weight: 400;
-	font-display: block;
-	src: url("#context.path.resource#font/fontawesome/fa-brands-400.woff2") format("woff2");
+    font-family: 'Font Awesome Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("#context.path.resource#font/fontawesome/fa-brands-400.woff2") format("woff2");
 }
 .awesome.bran {
-	font-family: Font Awesome Brands;
-	font-weight: 400;
+    font-family: Font Awesome Brands;
+    font-weight: 400;
 }
 */
 
 body {
-	background-color: var(--background-color);
-	color: var(--color);
-	font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-	line-height: 1.25em;
+    background-color: var(--background-color);
+    color: var(--color);
+    font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    line-height: 1.25em;
 }
 
 body, button, input[type="button"], input[type="submit"] {
-	font-size: 12pt;
+    font-size: 12pt;
 }
 
 input[type="text"], input[type="password"], textarea {
-	font-family: Monospace;
-	font-size: 10pt;
-	padding: 0px;
+    font-family: Monospace;
+    font-size: 10pt;
+    padding: 0px;
 }
 
 a, a:hover, a:visited {
-	color: var(--color);
+    color: var(--color);
 }
 
 body > div > div.header {
-	position: fixed;
-	top: 0em;
-	left: 0em;
-	right: 0em;
-	height: 2.5em;
+    position: fixed;
+    top: 0em;
+    left: 0em;
+    right: 0em;
+    height: 2.5em;
     padding: .5em;
-    padding-bottom: 1em;	
-	background-color: var(--background-color);
-	text-align: center;
+    padding-bottom: 1em;    
+    background-color: var(--background-color);
+    text-align: center;
     background-repeat: no-repeat;
     background-position: 50% 60%;
     background-size: contain;
@@ -90,30 +90,30 @@ body > div > div.header:after {
 }
 
 body > div.body {
-	position: absolute;
-	top: 4em;
-	left: 0em;
-	right: 0em;
-	bottom: 0em;
-	padding: 0.5em;
-	padding-top: 1em;
+    position: absolute;
+    top: 4em;
+    left: 0em;
+    right: 0em;
+    bottom: 0em;
+    padding: 0.5em;
+    padding-top: 1em;
 }
 
 body > div.body > div.content {
-	padding-bottom: 1em; /* see footer height */
+    padding-bottom: 1em; /* see footer height */
 }
 
 body > div.footer {
-	position: fixed;
-	left: 0em;
-	right: 0em;
-	bottom: 0em;
-	height: 0em;
-	padding-left: 1em;
-	padding-right: 1em;
-	background-color: var(--background-color);
-	text-align: center;
-	z-index: 500;
+    position: fixed;
+    left: 0em;
+    right: 0em;
+    bottom: 0em;
+    height: 0em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: var(--background-color);
+    text-align: center;
+    z-index: 500;
 }
 
 body > div.footer:before {
@@ -139,5 +139,5 @@ body > div.footer {
 /* end fix */
 
 .hidden {
-	display: none !important;
+    display: none !important;
 }

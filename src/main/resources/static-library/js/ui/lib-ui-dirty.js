@@ -2,28 +2,28 @@
 $$.UI.Dirty = {
     Ignored : {},
     _scopes : {
-		"Default" : false
-	},
-	_getScope : function(scope) {
-		if ($$.Text.IsBlank(scope)) {
-			return "Default";
-		}
-		return $$.Text.Trim(scope);
-	},
+        "Default" : false
+    },
+    _getScope : function(scope) {
+        if ($$.Text.IsBlank(scope)) {
+            return "Default";
+        }
+        return $$.Text.Trim(scope);
+    },
     IsDirty : function(scope) {
-		var s = $$.UI.Dirty._getScope(scope);
-		return $$.UI.Dirty._scopes[s] === true; 
-	},
+        var s = $$.UI.Dirty._getScope(scope);
+        return $$.UI.Dirty._scopes[s] === true; 
+    },
     Set : function(isDirty, scope) {
-		var s = $$.UI.Dirty._getScope(scope);
+        var s = $$.UI.Dirty._getScope(scope);
         $$.UI.Dirty._scopes[s] = isDirty !== false;
     },
     Regsiter : function(root, scope) {
-		var r = $$.Find(root);
-	    if (r == null) {
-			r = document;
-		}
-		
+        var r = $$.Find(root);
+        if (r == null) {
+            r = document;
+        }
+        
         var inputs = r.querySelectorAll("input, select, textarea");
         $$.ForEach(inputs, function(input) {
             if ($$.UI.Dirty.Ignored[input.id] === true) { 

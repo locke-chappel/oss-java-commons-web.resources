@@ -16,7 +16,7 @@ $$.Events = {
         event.stopPropagation();  
     },
     KeyCodes : {
-		Backsapce: 8,
+        Backsapce: 8,
         Tab : 9,
         Enter : 13,
         Shift: 16,
@@ -38,14 +38,14 @@ $$.Events = {
         e.removeEventListener(event, func);
     },
     SafeClick : function(element, func) {
-		$$.Events.Add(element, "click", function(event) {
-			this.disabled = true;
-			setTimeout(function() {
-				$$.Find(element).disabled = false;
-			}, 500);
-			func(event);
-		});
-	}
+        $$.Events.Add(element, "click", function(event) {
+            this.disabled = true;
+            setTimeout(function() {
+                $$.Find(element).disabled = false;
+            }, 500);
+            func(event);
+        });
+    }
 };
 
 $$.Find = function(id) {

@@ -1,6 +1,6 @@
 /* lib-collections.js */
 $$.Collections = {
-	Contains : function(collection, value) {
+    Contains : function(collection, value) {
         if (collection == null || value == null) {
             return false;
         }
@@ -10,7 +10,7 @@ $$.Collections = {
         }
         
         return collection[value] != null;
-	},
+    },
     IsEmpty : function(collection) {
         if (collection == null) {
             return true;

@@ -1,9 +1,9 @@
 /* ui/lib-ui-banner-touch.css */
 @media (pointer: coarse) {
     div.banner {
-		top: 4.25em; /* see header position */
-		left: 0.5em;
-		right: 0.5em;
-		width: auto;
-	}
+        top: 4.25em; /* see header position */
+        left: 0.5em;
+        right: 0.5em;
+        width: auto;
+    }
 }

@@ -9,6 +9,14 @@ public interface Minifier {
 
     String minifyJs(String js);
 
+    void setEnableCssCommentRemoval(boolean enabled);
+
+    boolean isCssCommentRemovalEnabled();
+
+    void setEnableJsCommentRemoval(boolean enabled);
+
+    boolean isJsCommentRemovalEnabled();
+
     void setEnabled(boolean enabled);
 
     boolean isEnabled();

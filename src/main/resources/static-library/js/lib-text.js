@@ -33,33 +33,33 @@ $$.Text = {
         return year + "-" + month + "-" + day;
     },
     FormatTimeInput : function(date) {
-		var d = date;
-		if (d == null) {
-			return null;
-		}
-		
-		if (!isNaN(d)) {
+        var d = date;
+        if (d == null) {
+            return null;
+        }
+        
+        if (!isNaN(d)) {
             d = new Date(d);
         }
         
-		var hour = d.getHours();
-		var minute = d.getMinutes();
-		var second = d.getSeconds();
-		
-		if (hour <= 9) {
-			hour = "0" + hour.toString();
-		}
-		
-		if (minute <= 9) {
-			minute = "0" + minute.toString();
-		}
-		
-		if (second <= 9) {
-			second = "0" + second.toString();
-		}
-		
-		return hour + ":" + minute + ":" + second;
-	},
+        var hour = d.getHours();
+        var minute = d.getMinutes();
+        var second = d.getSeconds();
+        
+        if (hour <= 9) {
+            hour = "0" + hour.toString();
+        }
+        
+        if (minute <= 9) {
+            minute = "0" + minute.toString();
+        }
+        
+        if (second <= 9) {
+            second = "0" + second.toString();
+        }
+        
+        return hour + ":" + minute + ":" + second;
+    },
     FormatTimeInterval : function(milliseconds) {
         if (milliseconds == null) {
             return null;

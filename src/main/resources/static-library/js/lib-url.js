@@ -12,17 +12,17 @@ $$.URL = {
         window.location.assign($$.URL.Resolve(to));
     },
     IsCurrent : function(url) {
-		var find = $$.URL.Resolve(url);
-	    var current = window.location.href;
-	    if (!find.includes("?") && current.includes("?")) {
-			current = current.substring(0, current.indexOf("?"));
-		}
-		if (find.startsWith("http")) {
-			return find === current;
-		}
-		current = current.replace($$.URL.GetDomain(current), "");
-	    return find === current;
-	},
+        var find = $$.URL.Resolve(url);
+        var current = window.location.href;
+        if (!find.includes("?") && current.includes("?")) {
+            current = current.substring(0, current.indexOf("?"));
+        }
+        if (find.startsWith("http")) {
+            return find === current;
+        }
+        current = current.replace($$.URL.GetDomain(current), "");
+        return find === current;
+    },
     NewWindow : function(url, data) {
         var location = $$.URL.Resolve(url);
         var w = window.open();

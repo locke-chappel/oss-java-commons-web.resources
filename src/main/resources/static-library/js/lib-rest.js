@@ -70,9 +70,9 @@ $$.REST = {
                 case 422:
                     response.json().then(function(body) {
                         if (typeof(args.error) === "function" && args.error(response, body)) {
-	                        return false;
-	                    }
-	                    
+                            return false;
+                        }
+                        
                         if (body != null && Array.isArray(body.messages)) {
                             $$.Banner.ShowMessages(body.messages);
                         }
@@ -171,7 +171,7 @@ $$.REST = {
                 if (typeof(args.error) === "function" && args.error(error)) {
                     return;
                 }
-				_handleError(args, error);
+                _handleError(args, error);
                 $$._inProgress.Complete();
                 $$.UI.Spinner.Hide();
             });

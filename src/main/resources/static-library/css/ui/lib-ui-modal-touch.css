@@ -1,16 +1,16 @@
 /* ui/lib-ui-modal-touch.css */
 @media (pointer: coarse) {
-	div.modal > div.dialog {
-		width: 90%;
-		min-width: 0em;
-		max-width: none;
-	}
-	
-	div.modal > div.dialog > div.body {
-		max-height: 70vh;
-	}
-	
-	div.modal > div.dialog > div.footer > div.buttons > button {
-		min-width: 6em;
-	}
+    div.modal > div.dialog {
+        width: 90%;
+        min-width: 0em;
+        max-width: none;
+    }
+    
+    div.modal > div.dialog > div.body {
+        max-height: 70vh;
+    }
+    
+    div.modal > div.dialog > div.footer > div.buttons > button {
+        min-width: 6em;
+    }
 }

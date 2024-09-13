@@ -23,27 +23,27 @@ $$.UI.Menu = {
         }
         
         var _isDecendent = function(e, ancestor) {
-			if (e == null || e.nodeName.toLowerCase() === "body") {
-				return false;
-			}
-			
-			if (e === ancestor) {
-				return true;
-			}
-			
-			if (e.parentNode === ancestor) {
-				return true;
-			}
-			
-			return _isDecendent(e.parentNode, ancestor);
-		};
+            if (e == null || e.nodeName.toLowerCase() === "body") {
+                return false;
+            }
+            
+            if (e === ancestor) {
+                return true;
+            }
+            
+            if (e.parentNode === ancestor) {
+                return true;
+            }
+            
+            return _isDecendent(e.parentNode, ancestor);
+        };
         
         
         button.toggle = function(event) {
             $$.Events.Cancel(event);
             var menu = $$.Find(menuId);
             if (_isDecendent(event.target, menu)) {
-            	return;
+                return;
             }
             if (menu.classList.contains("show")) {
                 menu.classList.remove("show");
