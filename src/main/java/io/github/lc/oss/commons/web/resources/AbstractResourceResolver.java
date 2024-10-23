@@ -37,10 +37,7 @@ public abstract class AbstractResourceResolver {
     };
 
     public enum Types {
-        css("css"),
-        font("woff2"),
-        img("gif", "ico", "jpg", "jpeg", "png", "svg", "svgz"),
-        js("js");
+        css("css"), font("woff2"), img("gif", "ico", "jpg", "jpeg", "png", "svg", "svgz"), js("js");
 
         private static final TypedEnumCache<Types, Types> CACHE = new TypedEnumCache<>(Types.class);
 
@@ -65,7 +62,8 @@ public abstract class AbstractResourceResolver {
 
         private Types(String... filesExtensions) {
             this.fileExtensions = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(filesExtensions)));
-            this.fileExtensionsPattern = Pattern.compile(".+\\.(" + this.fileExtensions.stream().collect(Collectors.joining("|")) + ")$");
+            this.fileExtensionsPattern = Pattern
+                    .compile(".+\\.(" + this.fileExtensions.stream().collect(Collectors.joining("|")) + ")$");
         }
 
         public Set<String> getFileExtensions() {
@@ -87,7 +85,8 @@ public abstract class AbstractResourceResolver {
 
         public TypedPathPredicate(Types type) {
             this.type = type;
-            this.extPattern = Pattern.compile(".+\\.(?:" + type.getFileExtensions().stream().collect(Collectors.joining("|")) + ")$");
+            this.extPattern = Pattern
+                    .compile(".+\\.(?:" + type.getFileExtensions().stream().collect(Collectors.joining("|")) + ")$");
         }
 
         @Override
@@ -103,7 +102,8 @@ public abstract class AbstractResourceResolver {
     protected static final String LIBRARY_PATH = "static-library/";
     protected static final Pattern VAR_PATTERN = Pattern.compile("(#([^# '\"<>]+)#)");
 
-    protected static final StaticResourceFileResolver LIBRARY_RESOLVER = new StaticResourceFileResolver(AbstractResourceResolver.LIBRARY_PATH, 3);
+    protected static final StaticResourceFileResolver LIBRARY_RESOLVER = new StaticResourceFileResolver(
+            AbstractResourceResolver.LIBRARY_PATH, 3);
 
     protected List<StaticResourceFileResolver> resolvers;
 
@@ -116,6 +116,10 @@ public abstract class AbstractResourceResolver {
     }
 
     protected String getCookiePrefix() {
+        return "";
+    }
+
+    protected String getSessionTimeoutCookie() {
         return "";
     }
 
@@ -215,33 +219,35 @@ public abstract class AbstractResourceResolver {
 
     protected String resolveValue(Types type, String key, Map<String, String> extraValues) {
         switch (key) {
-            case "context.cookies.prefix":
-                return this.getCookiePrefix();
-            case "context.logging.prefix":
-                return this.getConsoleLogPrefix();
-            case "context.path.resource":
-            case "context.path.url":
-                return this.getContextPath();
-            case "context.security.csrf.header":
-                return this.getCsrfTokenHeaderId();
-            case "context.timeout":
-                if (this.getSessionTimeout() <= 0) {
-                    return "-1";
-                }
-                return Integer.toString(this.getSessionTimeout());
-            case "context.timeout.enabled":
-                return Boolean.toString(this.getSessionTimeout() > 0);
-            default:
-                String value = null;
-                if (extraValues != null) {
-                    value = extraValues.get(key);
-                }
+        case "context.cookies.prefix":
+            return this.getCookiePrefix();
+        case "session.timeout.cookie":
+            return this.getSessionTimeoutCookie();
+        case "context.logging.prefix":
+            return this.getConsoleLogPrefix();
+        case "context.path.resource":
+        case "context.path.url":
+            return this.getContextPath();
+        case "context.security.csrf.header":
+            return this.getCsrfTokenHeaderId();
+        case "context.timeout":
+            if (this.getSessionTimeout() <= 0) {
+                return "-1";
+            }
+            return Integer.toString(this.getSessionTimeout());
+        case "context.timeout.enabled":
+            return Boolean.toString(this.getSessionTimeout() > 0);
+        default:
+            String value = null;
+            if (extraValues != null) {
+                value = extraValues.get(key);
+            }
 
-                if (value == null) {
-                    value = this.getL10NText(key);
-                }
+            if (value == null) {
+                value = this.getL10NText(key);
+            }
 
-                return value;
+            return value;
         }
     }
 }

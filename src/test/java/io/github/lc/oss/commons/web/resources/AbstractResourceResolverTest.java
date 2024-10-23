@@ -26,13 +26,15 @@ public class AbstractResourceResolverTest {
     public void test_replaceValues_defaults() {
         AbstractResourceResolver resolver = new TestClass();
 
-        String src = "#context.timeout# #context.timeout.enabled# #context.path.resource# #context.path.url# #context.cookies.prefix# #id# #context.security.csrf.header# #context.logging.prefix#";
+        String src = "#context.timeout# #context.timeout.enabled# #context.path.resource# #context.path.url# #context.cookies.prefix# #id# #context.security.csrf.header# #context.logging.prefix# #session.timeout.cookie#";
         String result = resolver.replaceValues(Types.css, src);
-        Assertions.assertEquals("-1 false    #id#  ", result);
+        Assertions.assertEquals("-1 false    #id#   ", result);
 
-        src = "#context.timeout #context.timeout.enabled context.path.url# context.cookies.prefix# #id #context.logging.prefix";
+        src = "#context.timeout #context.timeout.enabled context.path.url# context.cookies.prefix# #id #context.logging.prefix #session.timeout.cookie";
         result = resolver.replaceValues(Types.css, src);
-        Assertions.assertEquals("#context.timeout #context.timeout.enabled context.path.url# context.cookies.prefix# #id #context.logging.prefix", result);
+        Assertions.assertEquals(
+                "#context.timeout #context.timeout.enabled context.path.url# context.cookies.prefix# #id #context.logging.prefix #session.timeout.cookie",
+                result);
     }
 
     @Test
@@ -88,7 +90,8 @@ public class AbstractResourceResolverTest {
 
         src = "#context.timeout #context.timeout.enabled context.path.url# context.cookies.prefix# #id  extra# #context.logging.prefix";
         result = resolver.replaceValues(Types.css, src);
-        Assertions.assertEquals("#context.timeout #context.timeout.enabled context.path.url# context.cookies.prefix# #id  extra# #context.logging.prefix",
+        Assertions.assertEquals(
+                "#context.timeout #context.timeout.enabled context.path.url# context.cookies.prefix# #id  extra# #context.logging.prefix",
                 result);
     }
 

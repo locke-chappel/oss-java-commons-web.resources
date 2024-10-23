@@ -7,7 +7,11 @@ $$.Timers = {
         Refresh : null,
         Timeout : -1,
         Reset : function() {
-            if ($$.Timers.Session.IsEnabled !== true || $$.Timers.Session.Timeout < 0) {
+            var timeout = $$.Timers.Session.Timeout;
+            if (typeof(timeout) === "function") {
+                timeout = $$.Timers.Session.Timeout();
+            }
+            if ($$.Timers.Session.IsEnabled !== true || timeout < 0) {
                 return;
             }
             
@@ -23,10 +27,10 @@ $$.Timers = {
                 if (typeof($$.Timers.Session.Refresh) === "function") { 
                     $$.Timers.Session.Refresh();
                 }
-            }, $$.Timers.Session.Timeout - 30000);
+            }, timeout - 30000);
             $$.Timers.Session._resetTimer = setTimeout(function(){ 
                 $$.URL.Go("/");
-            }, $$.Timers.Session.Timeout);
+            }, timeout);
         }
     }
 };
