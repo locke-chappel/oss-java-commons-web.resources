@@ -12,8 +12,8 @@ $$.JWT = {
         }
         
         var t = {};
-        t.header = JSON.parse($$.Text.Base64.Decode(parts[0]));
-        t.payload = JSON.parse($$.Text.Base64.Decode(parts[1]));
+        t.header = JSON.parse($$.Encodings.Base64.Decode(parts[0]));
+        t.payload = JSON.parse($$.Encodings.Base64.Decode(parts[1]));
         t.signature = parts[2];
         return t;
     }

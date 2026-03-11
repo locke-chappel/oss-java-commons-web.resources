@@ -1,13 +1,5 @@
 /* lib-text.js */
 $$.Text = {
-    Base64 : {
-       Encode : function(data) {
-           return btoa(data);
-       },
-       Decode : function(base64String) {
-           return atob(base64String);
-       }
-    },
     FormatDateInput : function(date) {
         var d = date;
         if (d == null) {
